@@ -9,10 +9,8 @@
 import { sleepAsync } from "~/utils";
 import HomeNav from "~/components/home-nav.vue";
 
-const { pending, data } = await useLazyAsyncData("Test", async () => {
-  console.log("执行了");
-  return await $fetch("http://lumtest.com/myip.json");
-});
+const { data } = await useFetch("/api/hello");
+
 console.log(data.value);
 </script>
 <style lang="scss">

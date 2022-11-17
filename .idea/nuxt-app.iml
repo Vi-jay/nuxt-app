@@ -7,10 +7,10 @@
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/.nuxt/dev" />
       <excludeFolder url="file://$MODULE_DIR$/.nuxt/dist" />
-</content>
+      <excludeFolder url="file://$MODULE_DIR$/.vercel" />
+    </content>
     <content url="file://$MODULE_DIR$/.nuxt" />
-
-<orderEntry type="inheritedJdk" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
