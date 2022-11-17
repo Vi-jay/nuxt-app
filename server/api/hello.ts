@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export default defineEventHandler(async (event) => {
-  const res = await axios.get("http://lumtest.com/myip.json");
-  return res.data;
+  const res = await fetch("http://lumtest.com/myip.json");
+  return await res.json();
 });
