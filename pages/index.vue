@@ -9,7 +9,7 @@
 import { sleepAsync } from "~/utils";
 import HomeNav from "~/components/home-nav.vue";
 
-const { data } = await useFetch("/api/hello");
+const { data } = await useFetch("https://nuxt-app-virid.vercel.app/api/hello");
 
 console.log(data.value);
 </script>
