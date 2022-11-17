@@ -6,9 +6,9 @@
   </div>
 </template>
 <script setup lang="ts">
-import { sleepAsync } from "~/utils";
 import HomeNav from "~/components/home-nav.vue";
-const data = await $fetch("http://lumtest.com/myip.json");
+import axios from "axios";
+const data = (await axios.get("http://lumtest.com/myip.json")).data;
 </script>
 <style lang="scss">
 @import "assets/common.scss";
