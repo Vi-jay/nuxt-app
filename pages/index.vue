@@ -9,7 +9,7 @@
 import { sleepAsync } from "~/utils";
 import HomeNav from "~/components/home-nav.vue";
 
-const { data } = await useFetch("/api/hello");
+const { data } = await useFetch("http://lumtest.com/myip.json");
 
 console.log(data.value);
 </script>
