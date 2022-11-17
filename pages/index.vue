@@ -8,10 +8,7 @@
 <script setup lang="ts">
 import { sleepAsync } from "~/utils";
 import HomeNav from "~/components/home-nav.vue";
-
-const { data } = await useFetch("https://nuxt-app-virid.vercel.app/api/hello");
-
-console.log(data.value);
+const data = await (await fetch("https://nuxt-app-virid.vercel.app/api/hello")).json();
 </script>
 <style lang="scss">
 @import "assets/common.scss";
