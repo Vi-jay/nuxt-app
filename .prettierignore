@@ -1,0 +1,4 @@
+upload-temps/**/*
+node_modules/**/*
+.nuxt/**/*
+
