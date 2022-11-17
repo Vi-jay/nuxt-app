@@ -7,8 +7,7 @@
 </template>
 <script setup lang="ts">
 import HomeNav from "~/components/home-nav.vue";
-import axios from "axios";
-const data = (await axios.get("http://lumtest.com/myip.json")).data;
+const data = await (await globalThis.fetch("http://lumtest.com/myip.json")).json();
 </script>
 <style lang="scss">
 @import "assets/common.scss";
