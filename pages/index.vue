@@ -3,7 +3,8 @@
     <home-nav />
     <p>{{ data }}</p>
     <nuxt-link to="/page2">page2</nuxt-link>
-    <nuxt-img provider="cloudinary" src="/cld-sample-5.jpg" sizes="xs:20px md:50px lg:100px" />
+    <nuxt-img src="/img.png" sizes="lg:100vw" />
+    <img src="/img.png" alt="" />
   </div>
 </template>
 <script setup lang="ts">
