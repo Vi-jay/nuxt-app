@@ -1,5 +1,5 @@
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
-
+import * as fs from "fs";
+const isProd = process.env.NODE_ENV === "production";
 export default defineNuxtConfig({
   modules: ["@nuxt/image-edge", "@nuxtjs/tailwindcss"],
   image: {
@@ -9,13 +9,56 @@ export default defineNuxtConfig({
       baseURL: "https://res.cloudinary.com/dw0o3bb4q/image/upload/v1668955514/",
     },
   },
+  experimental: {
+    inlineSSRStyles: false,
+    // externalVue:true
+  },
+  sourcemap: {
+    client: isProd,
+    server: true,
+  },
   app: {
+    baseURL: "/",
+    buildAssetsDir: "/ast/",
     head: {
       htmlAttrs: {
         lang: "zh-cn",
       },
+      link: [],
+      style: [],
+      script: [],
+    },
+    //production only nuxt-image不会应用这里的策略 而是需要单独应用他的baseURL 做响应式时用nuxt-image上传到cloudinary上可以省流量
+    // cdnURL: "https://mycdn.org/",
+  },
+  appConfig: {
+    //可以用于配置环境变量 与runtimeConfig不同的是 不会覆盖进程环境变量
+    foo: fs.readFileSync("./cdnPlugin.ts", { encoding: "utf-8" }),
+  },
+  runtimeConfig: {
+    // The private keys which are only available server-side
+    apiSecret: "123",
+    xxx: "123",
+    // Keys within public are also exposed client-side
+    public: {
+      apiBase: "/api",
+    },
+  },
+  hooks: {
+    close: async () => {
+      if (!isProd) return;
+      //todo 这里上传cdn
+      // console.log(await globby(".output/**/*"));
     },
   },
   css: ["~/assets/theme.scss"],
   components: false,
+  postcss: {
+    plugins: {},
+  },
+  vite: {},
+  typescript: {
+    strict: false,
+  },
+  telemetry: false,
 });

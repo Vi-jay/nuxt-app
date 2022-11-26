@@ -8,6 +8,7 @@
       <excludeFolder url="file://$MODULE_DIR$/.nuxt/dev" />
       <excludeFolder url="file://$MODULE_DIR$/.nuxt/dist" />
       <excludeFolder url="file://$MODULE_DIR$/.vercel" />
+      <excludeFolder url="file://$MODULE_DIR$/.nuxt" />
     </content>
     <content url="file://$MODULE_DIR$/.nuxt" />
     <orderEntry type="inheritedJdk" />

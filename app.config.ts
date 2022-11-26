@@ -1,5 +1,1 @@
-import { defineAppConfig } from "#app";
-
-export default defineAppConfig({
-  foo: "bar",
-});
+export default defineAppConfig({});
