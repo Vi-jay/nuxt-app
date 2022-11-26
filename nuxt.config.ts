@@ -1,4 +1,5 @@
 import * as fs from "fs";
+
 const isProd = process.env.NODE_ENV === "production";
 export default defineNuxtConfig({
   modules: ["@nuxt/image-edge", "@nuxtjs/tailwindcss"],
@@ -16,6 +17,9 @@ export default defineNuxtConfig({
   sourcemap: {
     client: isProd,
     server: true,
+  },
+  imports: {
+    autoImport: false,
   },
   app: {
     baseURL: "/",
