@@ -1,4 +1,7 @@
+import { defineEventHandler } from "h3";
+
 export default defineEventHandler(async (event) => {
-  const res = await fetch("http://lumtest.com/myip.json");
-  return await res.json();
+  const res = event.node.res;
+  res.writeHead(302, { Location: "/page2" });
+  return res.end();
 });

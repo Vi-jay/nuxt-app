@@ -2,6 +2,21 @@ import * as fs from "fs";
 
 const isProd = process.env.NODE_ENV === "production";
 export default defineNuxtConfig({
+  buildDir: "nuxt-build",
+  nitro: {
+    storage: {
+      // redis: {
+      //   driver: "redis",
+      //   /* redis connector options */
+      //   port: 6379, // Redis port
+      //   host: "127.0.0.1", // Redis host
+      //   username: "", // needs Redis >= 6
+      //   password: "",
+      //   db: 0, // Defaults to 0
+      //   tls: {}, // tls/ssl
+      // },
+    },
+  },
   modules: ["@nuxt/image-edge", "@nuxtjs/tailwindcss"],
   image: {
     // Generate images to `/_nuxt/image/file.png`

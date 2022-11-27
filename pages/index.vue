@@ -6,15 +6,17 @@
     <p><nuxt-link to="/blog/2">2</nuxt-link></p>
     <nuxt-img src="/img.png" sizes="lg:100vw" />
     <img src="/img.png" alt="" />
+    <p>{{ $calcPrice(123) }}</p>
   </div>
 </template>
 <script setup lang="ts">
 import HomeNav from "~/components/home-nav.vue";
 import { createError, navigateTo, useCookie, useFetch, useLazyFetch, useRequestHeaders, useRouter, useRuntimeConfig } from "#app";
 import { FetchContext, FetchResponse } from "ofetch";
-import { useFoo } from "#imports";
+import { useFoo } from "~/composables/useFoo";
+import { CommonPluginKey } from "~/plugins/common";
+import { inject } from "#imports";
 
-console.log(useFoo());
 //可以客户端发给node端的cookies传给服务端 那么服务端返回的set-cookies怎么从node端设置给客户端呢
 // const memberCookie = useCookie("memberInfo");
 // const { data } = await useFetch("http://localhost:3006", {
