@@ -33,8 +33,8 @@ index 4c64f13..ce8ebd7 100644
 -const ofetch = createFetch({ fetch, Headers });
 +
 +console.log("ofetch已更新");
-+const vercelFetch = typeof fetch !== "undefined" && fetch;
-+const vercelHeaders = typeof Headers !== "undefined" && Headers;
++const vercelFetch = fetch;
++const vercelHeaders =Headers;
 +const xfetch = vercelFetch || globalThis.fetch;
 +const xHeaders = vercelHeaders || globalThis.Headers;
 +const ofetch = createFetch({ fetch: xfetch, Headers: xHeaders });
