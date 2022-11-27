@@ -16,6 +16,16 @@ declare module "@nuxt/schema" {
     apiSecret: string;
 
     xxx: string;
+
+    ipx: {
+      dir: string;
+
+      domains: Array<any>;
+
+      sharp: any;
+
+      alias: any;
+    };
   }
   interface PublicRuntimeConfig {
     apiBase: string;

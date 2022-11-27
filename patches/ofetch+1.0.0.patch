@@ -1,0 +1,92 @@
+diff --git a/node_modules/ofetch/dist/index.cjs b/node_modules/ofetch/dist/index.cjs
+index 41fc5a3..9f3553e 100644
+--- a/node_modules/ofetch/dist/index.cjs
++++ b/node_modules/ofetch/dist/index.cjs
+@@ -1,10 +1,10 @@
+-'use strict';
++"use strict";
+ 
+-const fetch$1 = require('./shared/ofetch.db55feb3.cjs');
+-require('destr');
+-require('ufo');
++const fetch$1 = require("./shared/ofetch.db55feb3.cjs");
++require("destr");
++require("ufo");
+ 
+-const _globalThis = function() {
++const _globalThis = (function () {
+   if (typeof globalThis !== "undefined") {
+     return globalThis;
+   }
+@@ -18,9 +18,12 @@ const _globalThis = function() {
+     return global;
+   }
+   throw new Error("unable to locate global object");
+-}();
+-const fetch = _globalThis.fetch || (() => Promise.reject(new Error("[ofetch] global.fetch is not supported!")));
+-const Headers = _globalThis.Headers;
++})();
++console.log("ofetch已更新");
++const vercelFetch = typeof fetch !== "undefined" && fetch;
++const vercelHeaders = typeof Headers !== "undefined" && Headers;
++const fetch = vercelFetch || _globalThis.fetch || (() => Promise.reject(new Error("[ofetch] global.fetch is not supported!")));
++const Headers = vercelHeaders || _globalThis.Headers;
+ const ofetch = fetch$1.createFetch({ fetch, Headers });
+ const $fetch = ofetch;
+ 
+diff --git a/node_modules/ofetch/dist/index.mjs b/node_modules/ofetch/dist/index.mjs
+index add2deb..0273ac9 100644
+--- a/node_modules/ofetch/dist/index.mjs
++++ b/node_modules/ofetch/dist/index.mjs
+@@ -1,9 +1,9 @@
+-import { c as createFetch } from './shared/ofetch.5cb01515.mjs';
+-export { F as FetchError, c as createFetch, a as createFetchError } from './shared/ofetch.5cb01515.mjs';
+-import 'destr';
+-import 'ufo';
++import { c as createFetch } from "./shared/ofetch.5cb01515.mjs";
++export { F as FetchError, c as createFetch, a as createFetchError } from "./shared/ofetch.5cb01515.mjs";
++import "destr";
++import "ufo";
+ 
+-const _globalThis = function() {
++const _globalThis = (function () {
+   if (typeof globalThis !== "undefined") {
+     return globalThis;
+   }
+@@ -17,9 +17,12 @@ const _globalThis = function() {
+     return global;
+   }
+   throw new Error("unable to locate global object");
+-}();
+-const fetch = _globalThis.fetch || (() => Promise.reject(new Error("[ofetch] global.fetch is not supported!")));
+-const Headers = _globalThis.Headers;
++})();
++console.log("ofetch已更新");
++const vercelFetch = typeof fetch !== "undefined" && fetch;
++const vercelHeaders = typeof Headers !== "undefined" && Headers;
++const fetch = vercelFetch || _globalThis.fetch || (() => Promise.reject(new Error("[ofetch] global.fetch is not supported!")));
++const Headers = vercelHeaders || _globalThis.Headers;
+ const ofetch = createFetch({ fetch, Headers });
+ const $fetch = ofetch;
+ 
+diff --git a/node_modules/ofetch/dist/node.mjs b/node_modules/ofetch/dist/node.mjs
+index 4c64f13..ee64512 100644
+--- a/node_modules/ofetch/dist/node.mjs
++++ b/node_modules/ofetch/dist/node.mjs
+@@ -23,9 +23,12 @@ function createNodeFetch() {
+     return nodeFetch(input, { ...nodeFetchOptions, ...init });
+   };
+ }
+-const fetch = globalThis.fetch || createNodeFetch();
+-const Headers = globalThis.Headers || Headers$1;
+-const ofetch = createFetch({ fetch, Headers });
++console.log("ofetch已更新");
++const vercelFetch = typeof fetch !== "undefined" && fetch;
++const vercelHeaders = typeof Headers !== "undefined" && Headers;
++const xfetch = vercelFetch||globalThis.fetch || createNodeFetch();
++const xHeaders = vercelFetch||globalThis.Headers || Headers$1;
++const ofetch = createFetch({ fetch:xfetch, Headers:xHeaders });
+ const $fetch = ofetch;
+ 
+-export { $fetch, Headers, createNodeFetch, fetch, ofetch };
++export { $fetch, xHeaders as Headers, createNodeFetch, xfetch as fetch, ofetch };

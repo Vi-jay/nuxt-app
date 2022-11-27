@@ -5,6 +5,7 @@ declare module "nitropack" {
     "/api/test": Awaited<ReturnType<typeof import("../../server/api/test.post").default>>;
     "/api/hello": Awaited<ReturnType<typeof import("../../server/api/hello").default>>;
     "/__nuxt_error": Awaited<ReturnType<typeof import("../../node_modules/nuxt/dist/core/runtime/nitro/renderer").default>>;
+    "/_ipx/**": Awaited<ReturnType<typeof import("../../node_modules/@nuxt/image-edge/dist/runtime/ipx").default>>;
   }
 }
 declare global {

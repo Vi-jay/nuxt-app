@@ -6,7 +6,7 @@
     <p><nuxt-link to="/blog/2">2</nuxt-link></p>
     <nuxt-img src="/img.png" sizes="lg:100vw" />
     <img src="/img.png" alt="" />
-    <p>{{ $calcPrice(123) }}</p>
+    <p>{{ data }}</p>
   </div>
 </template>
 <script setup lang="ts">
@@ -28,6 +28,7 @@ import { inject } from "#imports";
 // const [d1, d2] = await Promise.all([useFetch("https://api.nuxtjs.dev/mountains"), useFetch("https://api.nuxtjs.dev/mountains")]);
 // useFetch可以传函数 这样就可以动态使用refresh操作了
 // const { data: users, pending, refresh, error } = await useFetch(() => `users?page=${page.value}&take=6`, { baseURL: config.API_BASE_URL });
+const { data } = await useFetch("http://lumtest.com/myip.json");
 </script>
 <style lang="scss">
 @import "assets/common.scss";
